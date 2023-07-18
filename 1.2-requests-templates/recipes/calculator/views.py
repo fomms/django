@@ -28,3 +28,11 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
+
+
+def calc(request, dish):
+    count = request.GET.get('serving', 1)
+    some_dict = DATA[dish]
+    context = {'recipes': some_dict, 'serving': int(count), 'dish': dish}
+    print(context)
+    return render(request, 'calculator/index.html', context)

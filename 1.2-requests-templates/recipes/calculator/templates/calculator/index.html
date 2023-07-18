@@ -5,8 +5,11 @@
     <title>Рецепты</title>
 </head>
 <body>
-{% for ingredient, amount in recipe.items %}
-    <p>{{ ingredient }}: {{ amount }}</p>
+<H1>{{ dish.upper }}</H1>
+
+{% load template_mult %}
+{% for ingredient, amount in recipes.items %}
+    <p>{{ ingredient|capfirst }}: {{ amount|mult:serving }}</p>
 {% empty %}
     <p>Такого рецепта не знаю :(</p>
 {% endfor %}
